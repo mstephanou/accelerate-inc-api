@@ -12,10 +12,14 @@ app.use(cors());
 app.use('/api', router);
 
 async function runServer() {
-  console.log('Connecting to db...');
-  await connectToDb();
-  console.log('Database connected');
-  app.listen(port, () => console.log(`App is listening on port: ${port}`));
+  try {
+    console.log('Connecting to db...');
+    await connectToDb();
+    console.log('Database connected');
+    app.listen(port, () => console.log(`App is listening on port: ${port}`));
+  } catch (error) {
+    console.log('FAILED TO CONNECT', error);
+  }
 }
 
 runServer();

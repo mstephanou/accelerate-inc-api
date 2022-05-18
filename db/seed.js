@@ -135,7 +135,7 @@ async function seed() {
 
   //? SEEDING
   console.log('About to seed...');
-  const articlesWithAuthors = articles.map(article => {
+  const articlesWithAuthors = articles.map((article) => {
     article.author = admin._id;
     return article;
   });
